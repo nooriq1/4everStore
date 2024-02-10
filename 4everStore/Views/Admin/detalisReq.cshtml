@@ -1,0 +1,51 @@
+﻿@model _4everStore.Models.view.requsetandIteam
+@{
+    ViewData["Title"] = "detalisReq";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>معلومات الطلب</h1>
+
+
+<div class="container mt-4">
+   
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-info">
+                <th>ID</th>
+                <th>Email</th>
+                <th>الاسم</th>
+                <th>المحافظة</th>
+                <th>الوصف</th>
+                <th>رقم الهاتف </th>
+                <th>Item ID</th>
+                <th>Item</th>
+                <th>الكمية</th>
+                <th>السعر الكلي</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="table-active">
+                <td>@Model.request.Id</td>
+                <td>@Model.request.User_ID_email</td>
+                <td>@Model.request.name</td>
+                <td>@Model.request.city</td>
+                <td>@Model.request.descripon</td>
+                <td>@Model.request.phonenumber</td>
+                <td>@Model.iteam.Id</td>
+                <td>@Model.iteam.Name</td>
+                <td>@Model.request.Quantity</td>
+                <td>@Model.request.totalprice $ </td>
+
+                
+                <td><a class="btn btn-outline-primary category-link" asp-action="shipping" asp-route-id="@Model.request.Id">شحن الطلب</a></td>
+            </tr>
+          
+        </tbody>
+    </table>
+</div>
+
+

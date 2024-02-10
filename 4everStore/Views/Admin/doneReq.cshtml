@@ -1,0 +1,39 @@
+﻿@model List<request>
+@{
+    ViewData["Title"] = "doneReq";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>الطلبات المكتملة</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>الاسم</th>
+            <th>المحافظة</th>
+            <th>العنوان</th>
+            <th>رقم الهاتف </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in Model)
+        {
+
+            <tr>
+                <td>@it.Id</td>
+                <td>@it.User_ID_email</td>
+                <td>@it.name</td>
+                <td>@it.city</td>
+                <td>@it.descripon</td>
+                <td>@it.phonenumber</td>
+               
+            </tr>
+        }
+
+    </tbody>
+</table>
+

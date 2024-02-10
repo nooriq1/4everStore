@@ -1,0 +1,49 @@
+﻿@model List<request>
+@{
+    ViewData["Title"] = "inshpping";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 1;
+}
+
+<h1>inshpping</h1>
+
+
+
+<table class="table table-hover">
+        <thead>
+        <tr class ="table-active">
+                <th>ID</th>
+                <th>Email</th>
+                <th>الاسم</th>
+                <th>المحافظة</th>
+                <th>الوصف</th>
+                <th>رقم الهاتف</th>
+                <th>الكمية</th>
+                <th>السعر الكلي</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var it in Model)
+        {
+
+            <tr class="table-active">
+                <td>@it.Id</td>
+                <td>@it.User_ID_email</td>
+                <td>@it.name</td>
+                <td>@it.city</td>
+                <td>@it.descripon</td>
+                <td>@it.phonenumber</td>
+                <td>@it.Quantity</td>
+                <td>@it.totalprice</td>
+                
+                <td><a class="btn btn-outline-primary category-link" asp-action="Done" asp-route-id="@it.Id">اكتمل</a></td>
+
+               
+
+            </tr>
+}
+
+        </tbody>
+    </table>
+

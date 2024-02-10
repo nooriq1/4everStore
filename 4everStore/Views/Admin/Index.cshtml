@@ -1,0 +1,24 @@
+﻿@model List<request>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 1;
+}
+@if (TempData["Add"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Add"]
+    </div>
+}
+<h1>اخر الطلبات</h1>
+
+@foreach(var it in Model)
+{
+    <div class="alert alert-dismissible alert-info">
+
+        <strong>@count- </strong> <a asp-action="detalisReq" asp-route-idR="@it.Id" asp-route-idI="@it.iteamId" class="alert-link"><h4> عرض الطلب</h4> </a><br /> طلب جديد - @it.User_ID_email - @it.city
+    </div>
+    count++;
+}
+
+

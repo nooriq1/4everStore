@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model _4everStore.Models.view.RelatedAndITeam
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Iteams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="~/images/@Model.iteamV.img2" alt="..." /></div>
+            <div class="col-md-6">
+
+             
+                    <div class="small mb-1">SKU: @Model.iteamV.Id</div>
+                <h1 class="display-5 fw-bolder">@Model.iteamV.Name</h1>
+                    <div class="fs-5 mb-5">
+
+                    <span>$@Model.iteamV.price</span>
+                    </div>
+                <p class="lead">@Model.iteamV.Description</p>
+                    <div class="d-flex">
+                    <a class="btn btn-outline-dark mt-auto"  asp-action="buy" asp-route-id="@Model.iteamV.Id">شراء</a>
+                    </div>
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">عناصر مشابهة</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            @foreach(var it in Model.Related)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top"  src="~/images/@it.img1" />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">@it.Name</h5>
+                                <!-- Product price-->
+                               $ @it.price
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" asp-action="Iteams" asp-route-id="@it.Id">اذهب</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+           
+
+
+        </div>
+    </div>
+</section>

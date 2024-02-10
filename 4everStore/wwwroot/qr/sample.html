@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Utf-8">
+    <script type="text/javascript" src="qrcode.js"></script>
+    <!-- SJIS Support (optional) -->
+    <script type="text/javascript" src="qrcode_SJIS.js"></script>
+
+    <script type="text/javascript" src="sample.js"></script>
+    <title>QR Code Generator for JavaScript</title>
+  </head>
+  <body onload="body_loadHander()">
+    <form name="qrForm">
+     
+      <select name="t" hidden="hidden"></select>
+      
+      <select name="e" hidden="hidden">
+        <option value="L">L(7%)</option>
+        <option value="M" selected="selected">M(15%)</option>
+        <option value="Q">Q(25%)</option>
+        <option value="H" selected>H(30%)</option>
+      </select>
+      <!-- <span>Mode:</span> -->
+      <select name="m" hidden="hidden">
+        <option value="Numeric">Numeric</option>
+        <option value="Alphanumeric">Alphanumeric</option>
+        <option value="Byte" selected>Byte</option>
+        <option value="Kanji">Kanji</option>
+      </select>
+      <!-- <span>Multibyte:</span> -->
+      <select name="mb" hidden="hidden">
+        <option value="default">None</option>
+        <option value="SJIS">SJIS</option>
+        <option value="UTF-8" selected>UTF-8</option>
+      </select>
+      <br/>
+      <textarea name="msg" rows="10" cols="40">asaasdas</textarea>
+      <br/>
+      <input type="button" value="update" onclick="update_qrcode()"/>
+      <div id="qr"></div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+﻿
+@model List<request>
+@{
+    ViewData["Title"] = "cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+<style>
+    body {
+        font-family: 'Cairo', sans-serif;
+    }
+</style>
+<br />
+
+<h1 >السلة</h1>
+
+@if (TempData["Add"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Add"]
+    </div>
+}
+
+@if(Model != null)
+{
+    @foreach (var re in Model)
+    {
+        <div class="card border-info mb-3" style="max-width: 20rem;">
+            <div class="card-header"> @re.iteam.Name</div>
+            <div class="card-body">
+                <h4 class="card-title">في الطريق الى </h4>
+                <h4 class="card-title">الـ@(re.city)</h4>
+                <a class="btn btn-outline-dark mt-auto" asp-action="Iteams" asp-route-id="@re.iteamId">شاهد المنتج</a>
+            </div>
+        </div>
+
+
+    }
+
+}
+
